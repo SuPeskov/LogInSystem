@@ -1,0 +1,19 @@
+{
+  "name": "pwp_baza-2.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuPeskov/PWP_Baza-2.0.git"
+  },
+  "author": "SuPeskov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuPeskov/PWP_Baza-2.0/issues"
+  },
+  "homepage": "https://github.com/SuPeskov/PWP_Baza-2.0#readme",
+  "description": ""
+}
