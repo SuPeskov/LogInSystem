@@ -8,5 +8,4 @@ if ((!token) || (token == 'undefined')) {
 exitSite.addEventListener('click', (event) => {
     event.preventDefault();
     login();
-  
-  })
+  }); */
