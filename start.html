@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Вход в систему</title>
-</head>
-<body>
-    <div class="page-wrapper">
-        <div class="start">
-            <img class="startBanner" width="250px" src="./Image/logo_scouthouse.png" alt="Логотип Скаутхаус">
-            <h1 class="mainTitle">Авторизация:</h1>
-            <div class="submitField">
-                <div class="text-field">
-                    <label class="text-field__label" for="login">ID производства</label>
-                    <select class="text-field__input" name="login" id="inpProduct">
-                        <option value="KZN1">KZN1</option>
-                        <option value="KZN2">KZN2</option>
-                        <option value="KSM">KSM</option>
-                        <option value="VLG">VLG</option>
-                        <option value="MSK">MSK</option>
-                    </select>
-                </div>
-                <div class="text-field">
-                    <label class="text-field__label" for="login">Пароль</label>
-                    <input class="text-field__input" type="password" name="login" id="inpPass" placeholder="password">
-                </div>
-                <button id="log" class="btn">ВОЙТИ</button>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Том 5. Выбор продукта.</title>
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <div class="start">
+                <nav class="navBlock">
+                    <img class="startBanner" width="250px" src="./Image/logo_scouthouse.png" alt="Логотип Скаутхаус">
+                    <h1 class="mainTitle">Выбор продукта.</h1>
+                    <ol>
+                        <br>
+                        <li>
+                            <a href="https://supeskov.github.io/PWP_Baza-2.0/"> <h1>База - 2.0</h1> </a>
+                        </li>
+                        <li>
+                            <a href="./none.html">  <h1>Скаут - 2.0</h1> </a>
+                        </li>
+                        <li>
+                            <a  href="./none.html"> <h1>Дача - 5.0</h1> </a>
+                        </li>
+                        <li>
+                            <a  href="./none.html"> <h1>Баня ПроМакс - 2.0</h1> </a>
+                        </li>
+                    </ol>
+                    </nav>   
+                    <button id="exitBtn" class="btn">ВЫЙТИ</button>     
+            </div>    
         </div>
-    </div>
-    <script src="./start.js"></script>
-</body>
+        <script src="./login.js"></script>
+    </body>
 </html>
