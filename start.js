@@ -23,7 +23,7 @@ async function login() {
         const token = sessionStorage.getItem('token');
 
         if (token !== 'undefined') {
-          window.location.href = './index.html';
+          window.location.href = './start.html';
       }
 
   } catch(error) {

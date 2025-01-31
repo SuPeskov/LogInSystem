@@ -1,7 +1,7 @@
 const token = sessionStorage.getItem('token');
 
 if ((!token) || (token == 'undefined')) {
-    window.location.href = './start.html';
+    window.location.href = './index.html';
 }
 /* const exitSite = document.querySelector('#exitBtn');
 
