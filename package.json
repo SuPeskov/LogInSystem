@@ -15,5 +15,8 @@
     "url": "https://github.com/SuPeskov/PWP_Baza-2.0/issues"
   },
   "homepage": "https://github.com/SuPeskov/PWP_Baza-2.0#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "jsdom": "^26.0.0"
+  }
 }
