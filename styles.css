@@ -31,7 +31,10 @@ h2 {
 	margin-left: 20px;
 }
 
-#searchInput {width: 300px;}
+#searchInput {
+	width: 100%;
+	font-size: 20px;
+}
 .searchBody { margin: 15px;}
 .search-result { margin: 20px 0; }
 .snippet { color: #666; }
@@ -42,7 +45,9 @@ h2 {
 	top: 15px;
 	z-index: 3;
 }
-
+.findImg {
+	height: 100px;
+}
 .start {
 	width: 100%;
 	display: flex;
@@ -294,9 +299,9 @@ li.mainText::marker {
   }
 @media (max-width: 768px) {
 
-	.findKey {
+	.findImg {
 		height: 60px;
-	}
+	}	
 	.top {
 		height: 70px;
 		top: 10px;
@@ -313,7 +318,7 @@ li.mainText::marker {
 	.headerTitle {
 		font-size: 35px;
 		text-align: right;
-		margin-right: 15px;
+		margin-right: 85px;
 	}
 	.sketches {
 		width: 90%;
@@ -325,12 +330,15 @@ li.mainText::marker {
 	.tutorialVideo {
 		width: 100%;
 	  }
+	#searchInput {
+		font-size: 50px;
+	}
 }
 @media (max-width: 480px) {
 
-	.findKey {
+	.findImg {
 		height: 40px;
-	}
+	}	
 	.top {
 		height: 50px;
 		top: 5px;
@@ -341,6 +349,7 @@ li.mainText::marker {
 	}
 	.headerTitle {
 		font-size: 25px;
+		margin-right: 65px;
 	}
 	.mainTitle {
 		font-size: 20px;
