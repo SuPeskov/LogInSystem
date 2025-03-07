@@ -293,6 +293,10 @@ li.mainText::marker {
 	height: 405px;
   }
 @media (max-width: 768px) {
+
+	.findKey {
+		height: 60px;
+	}
 	.top {
 		height: 70px;
 		top: 10px;
@@ -323,6 +327,10 @@ li.mainText::marker {
 	  }
 }
 @media (max-width: 480px) {
+
+	.findKey {
+		height: 40px;
+	}
 	.top {
 		height: 50px;
 		top: 5px;
