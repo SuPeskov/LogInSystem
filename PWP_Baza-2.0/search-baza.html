@@ -8,58 +8,66 @@
     <input class="searchText" type="text" id="searchInput" placeholder="Введите запрос поиска по проекту База...">
     <div id="results"></div>
     <script>
-        let searchIndex = [];
-
-        // Загрузка индекса
-        fetch('search-index-baza.json')
-            .then(response => response.json())
-            .then(data => searchIndex = data);
-
         function search(query) {
-            const results = [];
-            const lowerQuery = query.toLowerCase();
-
-            searchIndex.forEach(page => {
-                const lowerContent = page.content.toLowerCase();
-                if (lowerContent.includes(lowerQuery)) {
-                    const startIndex = lowerContent.indexOf(lowerQuery);
-                    const snippet = page.content.slice(
-                        Math.max(0, startIndex - 50),
-                        startIndex + query.length + 50
-                    );
-                    
-                    results.push({
-                        path: page.path,
-                        snippet: snippet.replace(
-                            new RegExp(query, 'gi'), 
-                            match => `<strong>${match}</strong>`
-                        )
-                    });
-                }
-            });
-
-            return results;
-        }
-
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value.trim();
-            const resultsContainer = document.getElementById('results');
-            
-            resultsContainer.innerHTML = '';
-            
-            if (query.length > 2) {
-                const results = search(query);
-                results.forEach(result => {
-                    const div = document.createElement('div');
-                    div.className = 'search-result';
-                    div.innerHTML = `
-                        <a class="mainText" href="${result.path}">${result.path}</a>
-                        <div class="snippet mainText">${result.snippet}</div>
-                    `;
-                    resultsContainer.appendChild(div);
+          const results = [];
+          const lowerQuery = query.toLowerCase();
+        
+          searchIndex.forEach(page => {
+            // Поиск по элементам
+            page.elements.forEach(element => {
+              const lowerText = element.text.toLowerCase();
+              if (lowerText.includes(lowerQuery)) {
+                const startIndex = lowerText.indexOf(lowerQuery);
+                const snippet = element.text.slice(
+                  Math.max(0, startIndex - 30),
+                  startIndex + query.length + 30
+                );
+        
+                results.push({
+                  path: page.path,
+                  anchor: element.anchor,
+                  snippet: snippet.replace(
+                    new RegExp(query, 'gi'), 
+                    match => `<strong>${match}</strong>`
+                  ),
+                  context: `<${element.tag}>${element.text}</${element.tag}>`
                 });
-            }
+              }
+            });
+          });
+        
+          return results.sort((a, b) => b.score - a.score);
+        }
+        
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+          const query = e.target.value.trim();
+          const resultsContainer = document.getElementById('results');
+          
+          resultsContainer.innerHTML = '';
+          
+          if (query.length > 2) {
+            const results = search(query);
+            results.forEach(result => {
+              const link = result.anchor ? `${result.path}#${result.anchor}` : result.path;
+              const div = document.createElement('div');
+              div.className = 'search-result';
+              div.innerHTML = `
+                <a href="${link}" class="title">
+                  ${result.path}${result.anchor ? `#${result.anchor}` : ''}
+                </a>
+                <div class="context">${result.context}</div>
+                <div class="snippet">${result.snippet}</div>
+              `;
+              resultsContainer.appendChild(div);
+            });
+          }
         });
-    </script>
+        </script>
+        
+        <style>
+        .search-result { margin: 20px 0; padding: 10px; border: 1px solid #ddd; }
+        .snippet { color: #444; margin-top: 5px; }
+        .context { color: #666; font-size: 0.9em; margin: 3px 0; }
+        </style>
 </body>
 </html>

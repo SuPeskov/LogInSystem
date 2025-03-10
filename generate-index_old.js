@@ -1,24 +1,10 @@
+// generate-index.js
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const rootDir = './site';
+const rootDir = './.'; // Путь к корню сайта
 const index = [];
-
-function processElement(element, path, indexData) {
-  const tag = element.tagName.toLowerCase();
-  const id = element.id;
-  const text = element.textContent.replace(/\s+/g, ' ').trim();
-  
-  if (text && (tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'p' || tag === 'li')) {
-    indexData.push({
-      path: path,
-      anchor: id || null,
-      text: text,
-      tag: tag
-    });
-  }
-}
 
 function processDirectory(dir) {
   const files = fs.readdirSync(dir);
@@ -32,16 +18,12 @@ function processDirectory(dir) {
     } else if (path.extname(file) === '.html') {
       const content = fs.readFileSync(filePath, 'utf-8');
       const dom = new JSDOM(content);
+      const text = dom.window.document.body.textContent.replace(/\s+/g, ' ');
       const relativePath = path.relative(rootDir, filePath);
-      const elements = dom.window.document.querySelectorAll('h1, h2, h3, p, li');
-      
-      const pageIndex = [];
-      elements.forEach(el => processElement(el, relativePath, pageIndex));
       
       index.push({
         path: relativePath,
-        content: dom.window.document.body.textContent.replace(/\s+/g, ' '),
-        elements: pageIndex
+        content: text
       });
     }
   });
