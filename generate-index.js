@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const rootDir = './site';
+const rootDir = './PWP_Baza-2.0';
 const index = [];
 
 function processElement(element, path, indexData) {

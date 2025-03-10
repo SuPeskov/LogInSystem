@@ -8,6 +8,13 @@
     <input class="searchText" type="text" id="searchInput" placeholder="Введите запрос поиска по проекту База...">
     <div id="results"></div>
     <script>
+                let searchIndex = [];
+
+// Загрузка индекса
+fetch('search-index-baza.json')
+    .then(response => response.json())
+    .then(data => searchIndex = data);
+
         function search(query) {
           const results = [];
           const lowerQuery = query.toLowerCase();
