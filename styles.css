@@ -299,6 +299,9 @@ li.mainText::marker {
   }
 @media (max-width: 768px) {
 
+	.findKey {
+		top: 10px;
+	}
 	.findImg {
 		height: 50px;
 	}	
@@ -337,7 +340,7 @@ li.mainText::marker {
 @media (max-width: 480px) {
 
 	.findKey {
-		top: 10px;
+		top: 5px;
 	}
 	.findImg {
 		height: 40px;
