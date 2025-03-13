@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'ГОСТ тип А';
+	src: url('../fonts/gost_tip_a.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/gost_tip_a.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/gost_tip_a.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/gost_tip_a.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/gost_tip_a.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/gost_tip_a.svg#gost_tip_a') format('svg'); /* Chrome < 4, Legacy iOS */
+}
