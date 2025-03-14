@@ -1,9 +1,10 @@
-// generate-index.js
+// generate-index-scout.js
+// Запуск файла node generate-index-scout.js
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const rootDir = './PWP_Dacha-4.0/.'; // Путь к корню сайта
+const rootDir = './PWP_Scout-2.0/.'; // Путь к корню сайта
 const index = [];
 
 function processDirectory(dir) {
@@ -30,4 +31,4 @@ function processDirectory(dir) {
 }
 
 processDirectory(rootDir);
-fs.writeFileSync('search-index-dacha.json', JSON.stringify(index));
+fs.writeFileSync('search-index-scout.json', JSON.stringify(index));
