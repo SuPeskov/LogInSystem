@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поиск по сайту</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="searchBody">
+    <input class="searchText" type="text" id="searchInput" placeholder="Введите запрос поиска по проекту Дача...">
+    <div id="results"></div>
+    <script>
+        let searchIndex = [];
+
+        // Загрузка индекса
+        fetch('search-index-dacha.json')
+            .then(response => response.json())
+            .then(data => searchIndex = data);
+
+        function search(query) {
+            const results = [];
+            const lowerQuery = query.toLowerCase();
+
+            searchIndex.forEach(page => {
+                const lowerContent = page.content.toLowerCase();
+                if (lowerContent.includes(lowerQuery)) {
+                    const startIndex = lowerContent.indexOf(lowerQuery);
+                    const snippet = page.content.slice(
+                        Math.max(0, startIndex - 50),
+                        startIndex + query.length + 50
+                    );
+                    
+                    results.push({
+                        path: page.path,
+                        snippet: snippet.replace(
+                            new RegExp(query, 'gi'), 
+                            match => `<strong>${match}</strong>`
+                        )
+                    });
+                }
+            });
+
+            return results;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.trim();
+            const resultsContainer = document.getElementById('results');
+            
+            resultsContainer.innerHTML = '';
+            
+            if (query.length > 2) {
+                const results = search(query);
+                results.forEach(result => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result';
+                    div.innerHTML = `
+                        <a class="mainText" href="${result.path}">${result.path}</a>
+                        <div class="snippet mainText">${result.snippet}</div>
+                    `;
+                    resultsContainer.appendChild(div);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const rootDir = './.'; // Путь к корню сайта
+const rootDir = './PWP_Dacha-4.0/.'; // Путь к корню сайта
 const index = [];
 
 function processDirectory(dir) {
@@ -30,4 +30,4 @@ function processDirectory(dir) {
 }
 
 processDirectory(rootDir);
-fs.writeFileSync('search-index.json', JSON.stringify(index));
+fs.writeFileSync('search-index-dacha.json', JSON.stringify(index));
