@@ -1,10 +1,10 @@
-// generate-index-scout.js
-// Запуск файла node generate-index-scout.js
+// generate-index-___.js
+// Запуск файла node generate-index-___.js
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const rootDir = './PWP_Scout-2.0/.'; // Путь к корню сайта
+const rootDir = './PWP_Baza-2.0/.'; // Путь к корню сайта
 const index = [];
 
 function processDirectory(dir) {
@@ -31,4 +31,4 @@ function processDirectory(dir) {
 }
 
 processDirectory(rootDir);
-fs.writeFileSync('./PWP_Scout-2.0/search-index-scout.json', JSON.stringify(index));
+fs.writeFileSync('./PWP_Baza-2.0/search-index-baza.json', JSON.stringify(index));
