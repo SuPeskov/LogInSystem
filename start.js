@@ -32,8 +32,7 @@ async function login() {
 }
 
 productSubmit.addEventListener('click', (event) => {
-  // event.preventDefault();
-  window.location.href = './start.html';
-  // login();
-
+  event.preventDefault();
+    login();
+    // window.location.href = './start.html';
 });

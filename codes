@@ -1,0 +1,32 @@
+[
+  {
+    "fullName": "KZN1",
+    "email": "KZN1",
+    "password": "*",
+    "id": 1
+  },
+  {
+    "fullName": "KZN2",
+    "email": "KZN2",
+    "password": "*",
+    "id": 2
+  },
+  {
+    "fullName": "KSM",
+    "email": "KSM",
+    "password": "*",
+    "id": 3
+  },
+  {
+    "fullName": "VLG",
+    "email": "VLG",
+    "password": "*",
+    "id": 4
+  },
+  {
+    "fullName": "MSK",
+    "email": "MSK",
+    "password": "*",
+    "id": 5
+  }
+]
