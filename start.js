@@ -33,6 +33,7 @@ async function login() {
 
 productSubmit.addEventListener('click', (event) => {
   event.preventDefault();
-  login();
+  window.location.href = './start.html';
+  // login();
 
 });
